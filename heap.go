@@ -16,6 +16,10 @@ type Heap interface {
 }
 
 func main() {
+	fmt.Println("\n*************************************************")
+	fmt.Print("*\tRunning driver function as an array...")
+	fmt.Println("\n*************************************************")
+	fmt.Println("")
 	arr := array.New()
 	driver(arr)
 }
