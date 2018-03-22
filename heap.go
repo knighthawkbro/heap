@@ -1,23 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/knighthawkbro/heap/array"
+)
 
 // Heap (Public) -
 type Heap interface {
-	Create(numbers []int)
-	Remove()
-	Add(int)
+	Heap(numbers []int)
+	Remove() int
+	Add(item int)
 	Size() int
+	Get() int
 }
 
 func main() {
-
+	arr := array.New()
+	driver(arr)
 }
 
 func driver(h Heap) {
 	numbers := []int{8, 5, 3, 9, 2, 7}
 	fmt.Println("Original array\n", numbers)
-	h.Create(numbers)
+	h.Heap(numbers)
 	fmt.Println("\nAfter creating a heap\n", h)
 
 	h.Remove()
@@ -32,7 +38,8 @@ func driver(h Heap) {
 	h.Add(4)
 	fmt.Println("\nAdding 4 to the heap\n", h)
 
-	for x := 0; x < h.Size(); x++ {
+	size := h.Size()
+	for x := 0; x < size; x++ {
 		h.Remove()
 	}
 	fmt.Println("\nAfter removing everything\n", h)
